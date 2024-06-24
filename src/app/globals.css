@@ -2,10 +2,10 @@
   @tailwind components;
   @tailwind utilities;
 
-  html,
-  body,
-  :root {
-    height: 100%;
+  html, body :root{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
   }
 
   @layer base {
@@ -39,6 +39,17 @@
       --ring: 222.2 84% 4.9%;
 
       --radius: 0.5rem;
+
+      --color-bg1: rgb(108, 0, 162);
+      --color-bg2: rgb(0, 17, 82);
+      --color1: 18, 113, 255;
+      --color2: 221, 74, 255;
+      --color3: 100, 220, 255;
+      --color4: 200, 50, 50;
+      --color5: 180, 180, 50;
+      --color-interactive: 140, 100, 255;
+      --circle-size: 80%;
+      --blending: hard-light;
     }
 
     .dark {
@@ -81,10 +92,15 @@
     }
   }
 
-  .scroll-container {
-    display: flex;
-    flex-direction: column;
-    max-height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
+  .glow-text {
+    color: #fff; /* Change text color to white or any light color for better glow effect */
+    text-shadow:
+    0 0 5px #ffaa40, /* Lighter blue-green */
+    0 0 10px #9c40ff, /* Lighter blue-green */
+    0 0 20px #ffaa40, /* Lighter blue-green */
+    0 0 40px #ffaa40, /* Deeper blue */
+    0 0 80px #ffaa40, /* Deeper blue */
+    0 0 90px #9c40ff, /* Deeper blue */
+    0 0 100px #9c40ff, /* Deeper blue */
+    0 0 150px #9c40ff;
   }

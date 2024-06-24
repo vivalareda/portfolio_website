@@ -1,14 +1,15 @@
-import LandingSection from "@/components/LandingSection";
-import Image from "next/image";
+import HeroSection from "@/components/HeroSection";
+import GridPattern from "@/components/magicui/animated-grid-pattern";
+import { AuroraBackground } from "@/components/ui/aurora-background";
 
 export default function Home() {
+
   return (
-    <div className="relative w-screen h-screen">
-      <div className="scroll-container">
-                <div className="scroll-card">
-                  <LandingSection />
-                </div>
-            </div>
-    </div>
+    <>
+      <AuroraBackground>
+        <GridPattern />
+        <HeroSection />
+      </AuroraBackground>
+    </>
   );
 }
