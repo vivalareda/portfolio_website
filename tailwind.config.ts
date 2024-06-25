@@ -56,6 +56,9 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        animation: {
+          "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -63,6 +66,10 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "background-position-spin": {
+          "0%": { backgroundPosition: "top center" },
+          "100%": { backgroundPosition: "bottom center" },
+        },
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -79,11 +86,19 @@ const config = {
             backgroundPosition: "350% 50%, 350% 50%",
           },
         },
+        "border-beam": {
+          "100%": {
+            "offset-distance": "100%",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         aurora: "aurora 60s linear infinite",
+        "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
+        backgroundPositionSpin:
+          "background-position-spin 3000ms infinite alternate",
       },
     },
   },
@@ -102,4 +117,3 @@ function addVariablesForColors({ addBase, theme }: any) {
     ":root": newVars,
   });
 }
-// Remove the duplicate function declaration
