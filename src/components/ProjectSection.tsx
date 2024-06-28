@@ -11,8 +11,8 @@ const ProjectSection = () => {
       <h1 className="text-3xl font-bold text-black dark:text-neutral-200 text-center">
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-10">
-        {projectsList.map((project) => (
-          <div className="flex flex-col rounded-lg overflow-hidden shadow-lg">
+        {projectsList.map((project, index) => (
+          <div key={index} className="flex flex-col rounded-lg overflow-hidden shadow-lg">
             <div className="relative h-64 overflow-hidden">
               <Image
                 src={project.coverImage}
