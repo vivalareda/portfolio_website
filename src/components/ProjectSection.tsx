@@ -1,81 +1,56 @@
-import { BentoCard, BentoGrid } from "./magicui/bento-grid";
-import {
-  BellIcon,
-  CalendarIcon,
-  GlobeIcon,
-  InputIcon,
-} from "@radix-ui/react-icons";
-import { FaFileContract } from "react-icons/fa";
-import { tarmousTrad } from "@/lib/index";
-import { portrait } from "@/lib/index";
+import Image from "next/image";
 
+import AvatarCircles from "./magicui/avatar-circles";
 
-
-const features = [
-  {
-    Icon: FaFileContract,
-    name: "File translation management website ",
-    description: "A website I created for my dad's translation busines so that clients can upload files.",
-    href: "/",
-    cta: "Go to website",
-    background: (
-        <div className="gradient-mask-b-0">
-            <img src={tarmousTrad} alt="File Translation Management" className="w-full object-cover pb-2"/>
-        </div>
-
-    ),
-    className: "lg:row-start-1 lg:row-end-3 lg:col-start-2 lg:col-end-3",
-  },
-  {
-    Icon: InputIcon,
-    name: "Full text search",
-    description: "Search through all your files in one place.",
-    href: "/",
-    cta: "Learn more",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    className: "lg:col-start-1 lg:col-end-2 lg:row-start-1 lg:row-end-3",
-  },
-  {
-    Icon: GlobeIcon,
-    name: "Multilingual",
-    description: "Supports 100+ languages and counting.",
-    href: "/",
-    cta: "Learn more",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    className: "lg:col-start-1 lg:col-end-2 lg:row-start-3 lg:row-end-4",
-  },
-  {
-    Icon: CalendarIcon,
-    name: "Calendar",
-    description: "Use the calendar to filter your files by date.",
-    href: "/",
-    cta: "Learn more",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    className: "lg:col-start-3 lg:col-end-3 lg:row-start-1 lg:row-end-2",
-  },
-  {
-    Icon: BellIcon,
-    name: "Notifications",
-    description:
-      "Get notified when someone shares a file or mentions you in a comment.",
-    href: "/",
-    cta: "Learn more",
-    background: <img className="absolute -right-20 -top-20 opacity-60" />,
-    className: "lg:col-start-3 lg:col-end-3 lg:row-start-2 lg:row-end-4",
-  },
-];
+import { svgGithub } from "@/lib/index";
+import { projectsList } from "@/lib/constants";
 
 const ProjectSection = () => {
   return (
-    <div className="h-screen w-screen flex">
-        <div className="p-8 pt-14 pb-14 flex justify-center">
-
-            <BentoGrid className="lg:grid-rows-3">
-            {features.map((feature) => (
-                <BentoCard key={feature.name} {...feature} />
-            ))}
-            </BentoGrid>
-        </div>
+    <div className=" w-auto overflow-auto p-4">
+      <h1 className="text-3xl font-bold text-black dark:text-neutral-200 text-center">
+      </h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-10">
+        {projectsList.map((project) => (
+          <div className="flex flex-col rounded-lg overflow-hidden shadow-lg">
+            <div className="relative h-64 overflow-hidden">
+              <Image
+                src={project.coverImage}
+                alt="website"
+                layout="fill"
+                objectFit="cover"
+                className="gradient-mask-b-10"
+              />
+            </div>
+            <div className="p-4">
+              <p className="text-base sm:text-xl text-black dark:text-neutral-200 mb-2">
+                {project.title}
+              </p>
+              <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                {project.description}
+              </p>
+              <div className="flex justify-between items-center mt-4">
+                <AvatarCircles svgFiles={project.techStackSvg} />
+                {project.github && (
+                  <a
+                    href={project.github}
+                    role="button"
+                    className="inline-flex items-center justify-center w-12 h-12 rounded-full text-white"
+                  >
+                    <Image
+                      src={svgGithub}
+                      alt="GitHub"
+                      width={110}
+                      height={110}
+                      className="pt-3"
+                    />
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

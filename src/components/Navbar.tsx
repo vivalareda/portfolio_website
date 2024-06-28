@@ -12,7 +12,7 @@ interface NavbarProps {
 const Navbar: FC<NavbarProps> = ({ id }) => {
 
   return (
-    <div>
+      <header className="absolute top-44 z-50">
       <ShineBorder
         className="text-center text-md font-bold capitalize shadow-lg opacity-0"
         color={["#A07CFE", "#FE8FB5", "#FFBE7B"]}
@@ -26,7 +26,7 @@ const Navbar: FC<NavbarProps> = ({ id }) => {
           ))}
         </div>
       </ShineBorder>
-    </div>
+    </header>
   );
 };
 

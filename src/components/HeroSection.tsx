@@ -35,9 +35,6 @@ const HeroSection = () => {
 
   return (
     <div className="h-screen w-full flex flex-col flex-1 justify-center items-center gap-2">
-      <div id="navbar" className="w-full relative flex justify-center pb-16">
-        <NavBar id={"navbar"} />
-      </div>
       <h1
         ref={welcomeTextRef}
         className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl opacity-0 pb-"
