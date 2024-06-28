@@ -128,7 +128,7 @@ export function GridPattern({
             transition={{
               duration,
               repeat: 1,
-              delay: index * 0.1,
+              delay: 3 + index * 0.1,
               repeatType: "reverse",
             }}
             onAnimationComplete={() => updateSquarePosition(id)}

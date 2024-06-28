@@ -1,4 +1,5 @@
 export const portrait = '/assets/images/portrait.png';
+export const tarmousTrad = '/assets/images/tarmous-trad.png';
 export const heroPresentation = [
     {
         id: 1,

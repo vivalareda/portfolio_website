@@ -1,86 +1,66 @@
-"use client";
-import { use, useEffect, useRef, useState } from "react";
-import { NeonGradientCard } from "./magicui/neon-gradient-card";
-import { heroPresentation } from "@/utils";
-import { portrait } from "@/utils";
-import gsap from "gsap";
+import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
-import Image from "next/image";
+import gsap from "gsap";
+
+import TypingAnimation from "./ui/typing-animation";
+import NavBar from "./Navbar";
+import ShinyButton from "./magicui/shinny-button";
+
 
 const HeroSection = () => {
-
-  const [text, setText] = useState("DevOps");
-  const [currentPresentation, setCurrentPresentation] = useState(heroPresentation[0]);
-  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const [startAnimation, setStartAnimation] = useState(false);
+  const welcomeTextRef = useRef<HTMLHeadingElement>(null);
+  const subTextRef = useRef<HTMLHeadingElement>(null);
 
   useGSAP(() => {
-    gsap.fromTo("#job-title", { opacity: 0 }, { opacity: 1, duration: 1, delay: 2});
-  });
+    const tl = gsap.timeline();
 
-  useEffect(() => {
-    const tl = gsap.timeline({ repeat: 0, paused: true });
+    tl.fromTo(
+      welcomeTextRef.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 1 }
+    );
 
-    tl.to("#job-title", { opacity: 0, duration: 1 })
-      .fromTo("#job-title", { opacity: 0 }, { opacity: 1, duration: 1, delay: 2});
+    tl.fromTo(
+      subTextRef.current,
+      { opacity: 0 },
+      { opacity: 1, duration: 0.7 }
+    );
 
-    const interval = setInterval(() => {
-      tl.restart();
-    }, currentPresentation.videoDuration * 1000);
+    tl.call(() => setStartAnimation(true));
 
-    tl.play();
-
-    return () => {
-      clearInterval(interval);
-      tl.kill();
-    };
+    gsap.fromTo("#navbar", {y: -180, opacity: 0}, { y: 0, opacity: 1, duration: 1, delay: 3.5 });
+    gsap.to("#button", { opacity:1, duration: 1, delay: 2.2 });
   }, []);
 
-  // const handleVideoEnded = () => {
-  //   const nextPresentation = heroPresentation.find(presentation => presentation.id === currentPresentation.id + 1);
-  //   if (nextPresentation) {
-  //     setCurrentPresentation(nextPresentation);
-  //   } else {
-  //     setCurrentPresentation(heroPresentation[0]);
-  //   }
-  // };
-
   return (
-    <>
-      <div className="h-screen w-full flex flex-col flex-1 justify-center items-center gap-10">
-        <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-          Welcome to my portfolio website
-        </h1>
-        <h1 className="font-bold tracking-tight text-gray-900 sm:text-xl">
-          Here is where you will learn about my personal projects, the stack used
-        </h1>
+    <div className="h-screen w-full flex flex-col flex-1 justify-center items-center gap-2">
+      <div id="navbar" className="w-full relative flex justify-center pb-16">
+        <NavBar id={"navbar"} />
       </div>
-      <NeonGradientCard className="w-[1200px] h-[500px] items-center justify-center text-center">
-        <span className="pointer-events-none z-10 h-full whitespace-pre-wrap bg-gradient-to-br from-[#ff2975] from-35% to-[#00FFF1] bg-clip-text text-center text-6xl font-bold leading-none tracking-tighter text-transparent dark:drop-shadow-[0_5px_5px_rgba(0,0,0,0.8)]">
-          <div className="flex justify-center">
-          <h1 id="job-title" className="text-4xl font-bold tracking-tight text-white sm:text-6xl absolute p-10 opacity-0">{currentPresentation.text}</h1>
-            <video
-              ref={videoRef}
-              id="animationVideo"
-              src={currentPresentation.video}
-              style={{ width: '120%', borderRadius: '18px'}}
-              autoPlay
-              muted
-              // onEnded={handleVideoEnded}
-            />
-          </div>
-          {/* <div className="flex justify-end">
+      <h1
+        ref={welcomeTextRef}
+        className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl opacity-0 pb-"
+        >
+        Welcome to my portfolio website
+      </h1>
+      <h1
+        ref={subTextRef}
+        className="font-bold tracking-tight text-gray-900 sm:text-xl opacity-0"
+        >
+        Hi, my name is Reda and this is where you will learn about me, my
+        personal projects and the stack used to build them.
+      </h1>
 
-          <Image
-            src={portrait}
-            alt={"portrait"}
-            width={405}
-            height={405}
-            className="justify-end"
-            />
-          </div> */}
-        </span>
-      </NeonGradientCard>
-    </>
+      <div className="w-full pt-16">
+        <TypingAnimation startAnimation={startAnimation} />
+      </div>
+      <div className="absolute bottom-0 left-0 w-full h-1/4 flex justify-center items-center">
+      <div>
+        <ShinyButton text="See my work"/>
+      </div>
+      </div>
+    </div>
   );
 };
 

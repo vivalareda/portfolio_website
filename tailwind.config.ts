@@ -66,6 +66,17 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "shine-pulse": {
+          "0%": {
+            "background-position": "0% 0%",
+          },
+          "50%": {
+            "background-position": "100% 100%",
+          },
+          to: {
+            "background-position": "0% 0%",
+          },
+        },
         "background-position-spin": {
           "0%": { backgroundPosition: "top center" },
           "100%": { backgroundPosition: "bottom center" },
@@ -91,6 +102,16 @@ const config = {
             "offset-distance": "100%",
           },
         },
+        spotlight: {
+          "0%": {
+            opacity: "0",
+            transform: "translate(-72%, -62%) scale(0.5)",
+          },
+          "100%": {
+            opacity: "1",
+            transform: "translate(-50%,-40%) scale(1)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -99,10 +120,11 @@ const config = {
         "border-beam": "border-beam calc(var(--duration)*1s) infinite linear",
         backgroundPositionSpin:
           "background-position-spin 3000ms infinite alternate",
+        spotlight: "spotlight 2s ease .75s 1 forwards",
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), addVariablesForColors],
+  plugins: [require("tailwindcss-animate"),require("tailwind-gradient-mask-image"), addVariablesForColors],
 } satisfies Config
 
 export default config
