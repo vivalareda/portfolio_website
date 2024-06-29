@@ -4,12 +4,11 @@ import AvatarCircles from "./magicui/avatar-circles";
 
 import { svgGithub } from "@/lib/index";
 import { projectsList } from "@/lib/constants";
+import RadialGradient from "./radial-gradient";
 
 const ProjectSection = () => {
   return (
     <div className=" w-auto overflow-auto p-4">
-      <h1 className="text-3xl font-bold text-black dark:text-neutral-200 text-center">
-      </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-10">
         {projectsList.map((project, index) => (
           <div key={index} className="flex flex-col rounded-lg overflow-hidden shadow-lg">
