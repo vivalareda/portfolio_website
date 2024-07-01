@@ -1,11 +1,9 @@
 import Image from "next/image";
 
 import AvatarCircles from "./magicui/avatar-circles";
-import { ExternalLink, ExternalLinkIcon } from 'lucide-react';
+import { ExternalLinkIcon } from 'lucide-react';
 import { svgGithub } from "@/lib/index";
 import { projectsList } from "@/lib/constants";
-import { Icon } from 'lucide-react';
-import RadialGradient from "./ui/radial-gradient";
 
 const ProjectSection = () => {
   return (
