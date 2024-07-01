@@ -3,7 +3,7 @@ import Marquee from "@/components/magicui/marquee";
 
 const reviews = [
   {
-    name: "My best friend",
+    name: "My barber",
     body: "I guess he's alright. Could use a haircut though.",
     img: "https://avatar.vercel.sh/jack",
   },

@@ -96,8 +96,8 @@ const TypingAnimation: React.FC<TypingAnimationProps> = ({ startAnimation }) => 
 
   useEffect(() => {
     if (startAnimation) {
-      gsap.fromTo("#topAnimationText", { opacity: 0 }, { opacity: 1, duration: 1 });
-      gsap.fromTo("#animation-component", { opacity: 0 }, { opacity: 1, duration: 1, delay: 1 });
+      gsap.fromTo("#topAnimationText", { opacity: 0 }, { opacity: 1, duration: 0.5 });
+      gsap.fromTo("#animation-component", { opacity: 0 }, { opacity: 1, duration: 0.5, delay: 1 });
 
     }
   }, [startAnimation]);

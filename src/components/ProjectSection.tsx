@@ -1,10 +1,11 @@
 import Image from "next/image";
 
 import AvatarCircles from "./magicui/avatar-circles";
-
+import { ExternalLink, ExternalLinkIcon } from 'lucide-react';
 import { svgGithub } from "@/lib/index";
 import { projectsList } from "@/lib/constants";
-import RadialGradient from "./radial-gradient";
+import { Icon } from 'lucide-react';
+import RadialGradient from "./ui/radial-gradient";
 
 const ProjectSection = () => {
   return (
@@ -30,21 +31,31 @@ const ProjectSection = () => {
               </p>
               <div className="flex justify-between items-center mt-4">
                 <AvatarCircles svgFiles={project.techStackSvg} />
-                {project.github && (
-                  <a
+                <div className="flex justify-center items-center align-middle">
+                  {project.link && (
+                    <a
+                      href={project.link}
+                      role="button"
+                      >
+                      <ExternalLinkIcon className="p-1" width={50} height={50}/>
+                    </a>
+                  )}
+                  {project.github && (
+                    <a
                     href={project.github}
                     role="button"
                     className="inline-flex items-center justify-center w-12 h-12 rounded-full text-white"
-                  >
-                    <Image
-                      src={svgGithub}
-                      alt="GitHub"
-                      width={110}
-                      height={110}
-                      className="pt-3"
-                    />
-                  </a>
-                )}
+                    >
+                      <Image
+                        src={svgGithub}
+                        alt="GitHub"
+                        width={110}
+                        height={110}
+                        className="pt-1"
+                      />
+                    </a>
+                  )}
+                </div>
               </div>
             </div>
           </div>

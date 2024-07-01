@@ -3,7 +3,6 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 import TypingAnimation from "./ui/typing-animation";
-import NavBar from "./Navbar";
 import ShinyButton from "./magicui/shinny-button";
 
 
@@ -18,7 +17,7 @@ const HeroSection = () => {
     tl.fromTo(
       welcomeTextRef.current,
       { opacity: 0 },
-      { opacity: 1, duration: 1 }
+      { opacity: 1, duration: 0.5 }
     );
 
     tl.fromTo(
@@ -29,8 +28,8 @@ const HeroSection = () => {
 
     tl.call(() => setStartAnimation(true));
 
-    gsap.fromTo("#navbar", {y: -180, opacity: 0}, { y: 0, opacity: 1, duration: 1, delay: 3.5 });
-    gsap.to("#button", { opacity:1, duration: 1, delay: 2.2 });
+    gsap.fromTo("#navbar", {y: -180, opacity: 0}, { y: 0, opacity: 1, duration: 1, delay: 1.5 });
+    gsap.to("#button", { opacity:1, duration: 1, delay: 1.5 });
   }, []);
 
   return (

@@ -10,6 +10,7 @@ export const projectsList = [
             "/assets/images/svg/prisma.svg",
             "/assets/images/svg/next.svg",
         ],
+        link: "https://tarmous-trad-website.vercel.app/",
     },
     {
         title: "GPA Calculator",
@@ -21,6 +22,7 @@ export const projectsList = [
             "/assets/images/svg/flask.svg",
         ],
         github: "https://github.com/vivalareda/calculator-gpa",
+        link: "https://www.7ools.net",
     },
     {
         title: "Finesse semantic search",

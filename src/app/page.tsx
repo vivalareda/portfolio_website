@@ -1,5 +1,6 @@
 "use client"
 
+import ContactSection from "@/components/ContactSection";
 import HeroSection from "@/components/HeroSection";
 import GridPattern from "@/components/magicui/animated-grid-pattern";
 import Navbar from "@/components/Navbar";
@@ -17,6 +18,7 @@ export default function Home() {
       </AuroraBackground>
       <ProjectSection/>
       <TestimonialsSection />
+      <ContactSection />
     </main>
   );
 }
