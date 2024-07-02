@@ -36,13 +36,13 @@ const HeroSection = () => {
     <div className="h-screen w-full flex flex-col flex-1 justify-center items-center gap-2">
       <h1
         ref={welcomeTextRef}
-        className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl opacity-0 pb-"
+        className="text-4xl font-bold tracking-tight text-gray-900 xl:text-6xl opacity-0 text-center pb-4"
         >
         Welcome to my portfolio website
       </h1>
       <h1
         ref={subTextRef}
-        className="font-bold tracking-tight text-gray-900 sm:text-xl opacity-0"
+        className="font-bold tracking-tight text-xl text-gray-900 xl:text-2xl opacity-0 text-center"
         >
         Hi, my name is Reda and this is where you will learn about me, my
         personal projects and the stack used to build them.
