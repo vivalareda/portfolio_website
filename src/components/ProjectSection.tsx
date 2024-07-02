@@ -1,5 +1,6 @@
 import Image from "next/image";
 
+
 import AvatarCircles from "./magicui/avatar-circles";
 import { ExternalLinkIcon } from 'lucide-react';
 import { svgGithub } from "@/lib/index";
@@ -7,7 +8,7 @@ import { projectsList } from "@/lib/constants";
 
 const ProjectSection = () => {
   return (
-    <div className=" w-auto overflow-auto p-4">
+    <div className=" w-auto overflow-y-auto-auto p-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 p-10">
         {projectsList.map((project, index) => (
           <div key={index} className="flex flex-col rounded-lg overflow-hidden shadow-lg">
