@@ -31,7 +31,6 @@ const ContactSection = () => {
           </div>
         </NeonGradientCard>
       </div>
-      {/* <Particles /> */}
     </div>
   );
 };
