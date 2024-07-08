@@ -27,7 +27,7 @@ const ContactSection = () => {
       <div className="pt-10 flex items-center justify-end w-1/3">
         <NeonGradientCard className="flex items-end w-[500px] justify-end">
           <div className="w-full flex justify-end">
-            <Image src={portrait} width={350} height={350} alt={"portrait"} />
+            <Image src={portrait} width={350} height={350} alt={"portrait"} className="overflow-hidden" />
           </div>
         </NeonGradientCard>
       </div>
